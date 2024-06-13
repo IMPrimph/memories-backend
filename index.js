@@ -20,12 +20,11 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(cors())
 
+app.use("/posts", postRoutes);
+app.use("/user", userRoutes);
 app.use('/', (req, res) => {
     res.send("Hello to memories app")
 });
-app.use("/posts", postRoutes);
-app.use("/user", userRoutes);
-
 const DB_CONNECTION_URL = process.env.DB_CONNECTION_URL;
 const PORT = process.env.PORT || 5005;
 
